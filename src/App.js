@@ -12,6 +12,8 @@ class App extends React.Component {
       color: 'black',
       users: [],
       posts: [],
+      userList: true,
+      postList: false
     };
   }
 
@@ -59,6 +61,14 @@ class App extends React.Component {
     return maxId;
   }
 
+  showItems() {
+		this.setState({userList : true, postList: false})
+	}
+
+	showPosts() {
+		this.setState({postList : true, userList: false})
+  }
+  
   submitAddForm(event, name, male, female, email, salariu, isGoldClient) {
     event.preventDefault();
     this.setState(prevState => {
@@ -95,10 +105,19 @@ class App extends React.Component {
             <label htmlFor="color">Schimba culoarea textului: </label>
             <input name="color" type="color" onChange={(event) => this.changeTextColor(event)}/>
           </div>
+        <button className="buton" onClick={() => this.showItems()}>Afiseaza useri</button>
+          <button onClick={() => this.showPosts()}>Afiseaza postari</button>
+          <br></br>
+          
+          {this.state.userList ? 
           <UserList 
             users={this.state.users} 
           /> 
+          : null}
+          {this.state.postList ? 
           <PostList posts={this.state.posts}/> 
+          : null}
+      
       </div>
     );
   }
