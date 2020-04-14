@@ -8,7 +8,7 @@ class App extends React.Component {
     super();
     this.state = {
       background: 'white',
-      users: []
+      users: [],
     };
   }
 
@@ -19,6 +19,11 @@ class App extends React.Component {
         data = data.filter(user => user.id < 4);
         data.forEach(user => {
           user.isGoldClient = false;
+        });
+        data.forEach(user => {          
+          (user.id === 1) ? ((user.salariu = 4000) && (user.female = true))
+          : (user.id === 2) ? ((user.salariu = 3500) && (user.male = true))
+          : ((user.salariu = 3000) && (user.female = true))       
         });
         this.setState({users: data});
       })
@@ -40,7 +45,7 @@ class App extends React.Component {
     return maxId;
   }
 
-  submitAddForm(event, name, email, isGoldClient) {
+  submitAddForm(event, name, male, female, email, salariu, isGoldClient) {
     event.preventDefault();
     this.setState(prevState => {
       return {
@@ -49,7 +54,10 @@ class App extends React.Component {
           {
             id: this.getMaxId(prevState.users) + 1,
             name,
+            male,
+            female,
             email,
+            salariu,
             isGoldClient
           }
         ]
@@ -59,11 +67,12 @@ class App extends React.Component {
 
   render() {
     return(
-      <div className="app" style={{background: this.state.background}}>
-        <h1>Admin panel - Proiectul 1</h1>
-        <UserAddForm submitAddForm={(event, name, email, isGoldClient) => this.submitAddForm(event, name, email, isGoldClient)}/>
-        <UserList users={this.state.users}/>
-        <input type="color" onChange={(event) => this.changeColor(event)}/>
+      <div className="app" 
+      >
+          <UserAddForm submitAddForm={(event, name, male, female, email, salariu, isGoldClient) => this.submitAddForm(event, name, male, female, email, salariu, isGoldClient)}/>
+          <UserList 
+            users={this.state.users} 
+          /> 
       </div>
     );
   }

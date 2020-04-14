@@ -1,18 +1,29 @@
 import React from 'react';
 
-function UserItem(props) {
-    const {name, email, isGoldClient} = props;
+class UserItem extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+            
+        };
+    }
+
+    render(){
+        const {id, name, male, female, email, salariu, isGoldClient} = this.props;
 
     return (
-        <div>
-            <h3>{ name }</h3>
+    
+            <div className="user" style={{ backgroundColor: isGoldClient ? 'gold' : 'white'}}>
+    
+                <h3>{name}</h3>
+                { male ? <img src="https://icon-library.net//images/boy-icon-png/boy-icon-png-22.jpg" width="120px" alt="logo"/> : female ? <img src="https://icon-library.net//images/girl-icon-png/girl-icon-png-23.jpg" width="120px" alt="logo"/> :  <img src="https://icon-library.net//images/icon-profile/icon-profile-11.jpg" width="120px" alt="unknown"/>}
+                
             <p>{ email }</p>
-            { isGoldClient
-                ? <h3>Client GOLD</h3>
-                : null
-            }
+                <p>Salariu : { salariu }</p>
         </div>
     );
+}
 }
 
 export default UserItem;
