@@ -8,6 +8,7 @@ class App extends React.Component {
     super();
     this.state = {
       background: 'white',
+      color: 'black',
       users: [],
     };
   }
@@ -29,8 +30,12 @@ class App extends React.Component {
       })
   }
 
-  changeColor(event) {
+  changeBackgroundColor(event) {
     this.setState({background: event.target.value});
+  }
+
+  changeTextColor(event) {
+    this.setState({color: event.target.value});
   }
 
   getMaxId(users) {
@@ -68,8 +73,19 @@ class App extends React.Component {
   render() {
     return(
       <div className="app" 
+        style={{ background: this.state.background, color: this.state.color }}
       >
           <UserAddForm submitAddForm={(event, name, male, female, email, salariu, isGoldClient) => this.submitAddForm(event, name, male, female, email, salariu, isGoldClient)}/>
+
+          <div>
+            <label htmlFor="color">Schimba culoarea fundalului: </label>
+            <input name="color" type="color" onChange={(event) => this.changeBackgroundColor(event)}/>
+          </div>
+          <br></br>
+          <div>
+            <label htmlFor="color">Schimba culoarea textului: </label>
+            <input name="color" type="color" onChange={(event) => this.changeTextColor(event)}/>
+          </div>
           <UserList 
             users={this.state.users} 
           /> 
