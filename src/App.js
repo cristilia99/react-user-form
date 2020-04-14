@@ -1,6 +1,7 @@
 import React from 'react';
 import UserList from './components/UserList';
 import UserAddForm from './components/UserAddForm';
+import PostList from './components/PostList';
 import './App.css';
 
 class App extends React.Component {
@@ -10,6 +11,7 @@ class App extends React.Component {
       background: 'white',
       color: 'black',
       users: [],
+      posts: [],
     };
   }
 
@@ -27,6 +29,13 @@ class App extends React.Component {
           : ((user.salariu = 3000) && (user.female = true))       
         });
         this.setState({users: data});
+      })
+
+      fetch('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => response.json())
+      .then((json) => {
+          const filteredPosts = json.filter(json => json.id < 4);
+          this.setState({posts:filteredPosts})
       })
   }
 
@@ -89,6 +98,7 @@ class App extends React.Component {
           <UserList 
             users={this.state.users} 
           /> 
+          <PostList posts={this.state.posts}/> 
       </div>
     );
   }
