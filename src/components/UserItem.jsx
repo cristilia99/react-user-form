@@ -11,6 +11,7 @@ class UserItem extends React.Component{
 
     render(){
         const {id, name, male, female, email, salariu, isGoldClient} = this.props;
+        const { handleDeleteUsers } = this.props;
 
     return (
     
@@ -21,6 +22,9 @@ class UserItem extends React.Component{
                 
             <p>{ email }</p>
                 <p>Salariu : { salariu }</p>
+             
+                <button onClick={(event) => handleDeleteUsers(event, id)}>Sterge Utilizatorul</button>
+             
         </div>
     );
 }

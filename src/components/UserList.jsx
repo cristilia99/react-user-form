@@ -12,6 +12,7 @@ class UserList extends React.Component {
 
     render(){
         const {users} = this.props;
+        const {handleDeleteUsers} = this.props;
 
     return (
         <div>
@@ -26,6 +27,7 @@ class UserList extends React.Component {
                             salariu={ user.salariu}
                     isGoldClient={ user.isGoldClient }
                     key={ index }
+                            handleDeleteUsers = {handleDeleteUsers}
                 />
             })}
         </div>

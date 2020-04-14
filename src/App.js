@@ -69,6 +69,12 @@ class App extends React.Component {
 		this.setState({postList : true, userList: false})
   }
   
+  handleDeleteUsers(event, id){
+    event.preventDefault();
+    const items = this.state.users.filter(user => user.id !== id);
+    this.setState({ users: items });
+  }
+
   submitAddForm(event, name, male, female, email, salariu, isGoldClient) {
     event.preventDefault();
     this.setState(prevState => {
@@ -112,6 +118,7 @@ class App extends React.Component {
           {this.state.userList ? 
           <UserList 
             users={this.state.users} 
+            handleDeleteUsers={(event, id) => this.handleDeleteUsers(event, id)}
           /> 
           : null}
           {this.state.postList ? 
