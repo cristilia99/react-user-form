@@ -1,5 +1,6 @@
 import React from 'react';
 import UserItem from './UserItem';
+import './UserList.css';
 
 class UserList extends React.Component {
 
@@ -17,6 +18,7 @@ class UserList extends React.Component {
     return (
         <div>
             <h2>Lista utilizatorilor:</h2>
+                <div className="users">
             { users.map((user, index) => {
                 return <UserItem
                     id={ user.id }
@@ -31,6 +33,7 @@ class UserList extends React.Component {
                 />
             })}
         </div>
+            </div>
     );
 }
 }

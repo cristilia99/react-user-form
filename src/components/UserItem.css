@@ -1,0 +1,8 @@
+.user {
+    border: 1px solid black;
+    justify-content: space-around;
+    margin: 1%;
+    box-sizing: border-box;
+    text-align: center;
+    width: 18%;
+}

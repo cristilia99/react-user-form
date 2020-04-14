@@ -100,6 +100,8 @@ class App extends React.Component {
       <div className="app" 
         style={{ background: this.state.background, color: this.state.color }}
       >
+
+        <div className="form">
           <UserAddForm submitAddForm={(event, name, male, female, email, salariu, isGoldClient) => this.submitAddForm(event, name, male, female, email, salariu, isGoldClient)}/>
 
           <div>
@@ -111,6 +113,9 @@ class App extends React.Component {
             <label htmlFor="color">Schimba culoarea textului: </label>
             <input name="color" type="color" onChange={(event) => this.changeTextColor(event)}/>
           </div>
+        </div>
+
+        <div className="list">
         <button className="buton" onClick={() => this.showItems()}>Afiseaza useri</button>
           <button onClick={() => this.showPosts()}>Afiseaza postari</button>
           <br></br>
@@ -125,6 +130,7 @@ class App extends React.Component {
           <PostList posts={this.state.posts}/> 
           : null}
       
+        </div>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import "./UserItem.css";
 
 class UserItem extends React.Component{
 

@@ -21,4 +21,4 @@ function PostList(props){
     );
 }
 
-
+export default PostList;
