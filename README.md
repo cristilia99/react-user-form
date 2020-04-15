@@ -1,41 +1,25 @@
-# JavaScript Advanced - Proiectul 1
+# React Form
+Formularul va crea un profil pentru fiecare utilizator care va completa corespunzator campurile si il va afisa in lista utilizatorilor
 
-## Rularea proiectului
+## Functionalitati ale formularului
+* Formularul poate fi validat doar daca toate campurile obligatorii sunt completate corect.
 
-#### 1. `git clone https://github.com/razvancir96/react-admin-panel.git`
+* La submiterea formularului, pentru fiecare camp obligatoriu necompletat, formularul nu se va trimite iar sub campurile respective va fi afisat cu rosu mesajul "Campul trebuie completat!".
 
-#### 2. `cd react-admin-panel`
+* Campurile care sunt de tip "checkbox" sau "radio" nu sunt obligatorii.
 
-#### 3. `npm install` (posibil sa dureze)
+* De asemenea, pentru ca formularul sa fie trimis trebuie ca cele 2 parole sa coincida iar campul de email sa aiba un format valid, altfel vor fi afisate alerte.
 
-#### 4. `npm start`
+* Daca toate conditiile sunt indeplinite si formularul este validat, acesta va transmite toate datele primite catre lista utilizatorilor unde vor fi afisate intr-un chenar.
 
-## Cursuri precedente
+* In functie de selectarea optiunii "Barbat" sau "Femeie" din formular, in chenarul corespunzator acelui utilizator va fi afisata imaginea unui barbat sau a unei femei. In caz ca utilizatorul nu selecteaza nicio optiune, in chenar va fi afisat simbolul unui utilizator oarecare.
 
-Pentru a vedea progresiv cum a fost realizat acest proiect urmariti urmatoarele repo-uri. Comentariile/console.log-urile din fiecare fisier sunt specifice cursurului la care au fost facute. Versiunea finala este fara comentarii sau console.log-uri.
+* De asemenea daca este selectata optiunea "Client GOLD", chenarul corespunzator acelui utilizator va avea culoarea aurie.
 
-#### Cursul 2: https://github.com/razvancir96/react-curs02
+* Dupa trimiterea formularului, toate campurile sunt sterse si debifate.
 
-#### Cursul 3: https://github.com/razvancir96/react-curs03
-
-#### Cursul 4: https://github.com/razvancir96/react-curs04
-
-## Cerințe de implementat
-
-Pentru a continua proiectul, aveți de implementat cerințele care au fost date de-a lungul cursurilor 2-4:
-
-2.1. Adăugați două proprietăți noi pentru fiecare user: salariu și imagine. Dați valori pentru acestea și afișați-le pe ecran.
-
-2.2. Adăugați un nou input de tip culoare. La schimbarea culorii lui, culoarea textului pentru întreaga aplicație se va schimba.
-
-3.1. Creați două componente noi, numite PostList și PostItem. PostList va fi o listă de componente de tip PostItem.
-În componenta PostList, atunci când este afișată pe ecran, faceți un request catre endpoint-ul /posts, de pe JSON placeholder, afișând datele preluate. Practic, o singură dată veți face request către url-ul https://jsonplaceholder.typicode.com/posts.
-
-3.2. Creați două butoane: Afișează useri și Afișează postări. Implicit, vor fi afișați userii. La click pe oricare din cele două butoane, va fi actualizată lista afișată pe ecran. Dacă dăm click pe butonul Afișează useri va fi afișată lista userilor, dacă dăm click pe Afișează postări va fi afișată lista postărilor.
-
-4.1 Adăugați pe fiecare user un buton de ștergere.
-
-4.2. Faceți puțină validare a datelor. Spre exemplu, să nu poată fi introdus un nume gol, iar emailul să conțină caracterele `@` și `.`.
-
-4.3. Stilizați aplicația, astfel încât să arate mai frumos.
-
+### Alte functionalitati ale proiectului
+* Doua inputuri de tip culoare care modifica culoarea fundalului si culoarea textului
+* Doua butoane, "Afiseaza useri" si "Afiseaza postari", care atunci cand sunt apasate actualizeaza lista de useri sau lista de postari afisata pe ecran.
+* Cele doua liste vor contine date de la API-ul JSONPlaceholder.
+* Fiecare user afisat in lista utilizatorilor va avea un buton de stergere.
