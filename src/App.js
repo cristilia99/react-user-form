@@ -97,9 +97,7 @@ class App extends React.Component {
 
   render() {
     return(
-      <div className="app" 
-        style={{ background: this.state.background, color: this.state.color }}
-      >
+      <div className="app" style={{ background: this.state.background, color: this.state.color }}>
 
         <div className="form">
           <UserAddForm submitAddForm={(event, name, male, female, email, salariu, isGoldClient) => this.submitAddForm(event, name, male, female, email, salariu, isGoldClient)}/>
@@ -120,15 +118,9 @@ class App extends React.Component {
           <button onClick={() => this.showPosts()}>Afiseaza postari</button>
           <br></br>
           
-          {this.state.userList ? 
-          <UserList 
-            users={this.state.users} 
-            handleDeleteUsers={(event, id) => this.handleDeleteUsers(event, id)}
-          /> 
-          : null}
-          {this.state.postList ? 
-          <PostList posts={this.state.posts}/> 
-          : null}
+          {this.state.userList 
+          ? <UserList users={this.state.users} handleDeleteUsers={(event, id) => this.handleDeleteUsers(event, id)} /> : null}
+          {this.state.postList ? <PostList posts={this.state.posts}/> : null}
       
         </div>
       </div>

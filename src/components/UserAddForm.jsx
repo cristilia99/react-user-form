@@ -14,7 +14,6 @@ class UserAddForm extends React.Component {
             salariu: '',
             isGoldClient: false
         };
- 
     }
 
     updateName(event) {
@@ -43,14 +42,12 @@ class UserAddForm extends React.Component {
 
     updateSalariu(event) {
         this.setState({salariu: event.target.value});
-        
     }
 
     updateIsGoldClient(event) {
         this.setState({isGoldClient: event.target.checked});
     }
-
-    
+ 
     handleFormSubmit(event, name, male, female, email, parola1, parola2, salariu, isGoldClient) {
         event.preventDefault();
 
@@ -87,16 +84,12 @@ class UserAddForm extends React.Component {
                         c_error_element.style.display = 'block';
                         
                     } else {
-                        c_error_element.style.display = 'none';
-                        
+                        c_error_element.style.display = 'none';                        
                     }
     
-                    break;
-    
-                }
-            
+                    break;    
+                }            
             }
-
         }
 
         if ( is_valid_form) {            
@@ -119,9 +112,7 @@ class UserAddForm extends React.Component {
                 alert('Adresa de email nu are un format valid');
             }
         }
-
-        
-    
+            
         if (is_valid_form) {
 
         let checkbox = document.getElementById('isGoldClient');
@@ -155,14 +146,14 @@ class UserAddForm extends React.Component {
     
         if ( cond1 || cond2 || cond3) {
             return false;
-    }
+        }
         return true;
     }
 
     render() {
 
         const {name, male, female, email, parola1, parola2, salariu, isGoldClient} = this.state;
-
+       
         return (
             <form
                 className="user-add-form"
@@ -174,14 +165,14 @@ class UserAddForm extends React.Component {
                 <legend><h2>Formular de utilizatori</h2></legend>
 
                 <div className="form-item">
-                <label htmlFor="name">Nume:</label>
-                <input
+                    <label htmlFor="name">Nume:</label>
+                    <input
                         id="name"
-                    type="text"
-                    name="name"
+                        type="text"
+                        name="name"
                         value={this.state.name}
-                    onChange={(event) => this.updateName(event)}
-                />
+                        onChange={(event) => this.updateName(event)}
+                    />
                     <div className="error-msg">Campul trebuie completat!</div>
                 </div>
             
@@ -206,14 +197,14 @@ class UserAddForm extends React.Component {
                 </div>
 
                 <div className="form-item">
-                <label htmlFor="email">Email:</label>
-                <input
+                    <label htmlFor="email">Email:</label>
+                    <input
                         id="email"
-                    type="text"
-                    name="email"
+                        type="text"
+                        name="email"
                         value={this.state.email}
-                    onChange={(event) => this.updateEmail(event)}
-                />
+                        onChange={(event) => this.updateEmail(event)}
+                    />
                     <div className="error-msg">Campul trebuie completat!</div>
                 </div>
 
@@ -255,14 +246,14 @@ class UserAddForm extends React.Component {
                 </div>
 
                 <div className="form-item">
-                <label htmlFor="is-gold-client">Client GOLD</label>
-                <input
+                    <label htmlFor="is-gold-client">Client GOLD</label>
+                    <input
                         id="isGoldClient"
-                    type="checkbox"
-                    name="is-gold-client"
+                        type="checkbox"
+                        name="is-gold-client"
                         checked={this.state.IsGoldClient}
-                    onChange={(event) => this.updateIsGoldClient(event)}
-                />
+                        onChange={(event) => this.updateIsGoldClient(event)}
+                    />
                     <div className="error-msg">Campul trebuie completat!</div>
                 </div>
 
